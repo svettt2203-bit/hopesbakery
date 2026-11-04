@@ -42,18 +42,22 @@
         </div>
     </section>
 
+    <!-- SECCIÓN SOBRE MÍ -->
     <section id="nosotros" class="nosotros">
         <h2>Sobre Mí</h2>
-        <div class="nosotros-container">
+        <div class="nosotros-contenido">
+            <div class="nosotros-imagen">
+                <img src="IMAGENES/recursos/LOGO.png" alt="Tobías - Hope's Bakery">
+            </div>
             <div class="nosotros-texto">
-                <p>¡Hola! Mi nombre es Tobías, tengo 18 años y la cocina es mi pasión desde que tengo memoria. Mi amor por la pastelería comenzó entre harinas, aromas dulces y recetas familiares que despertaron mi curiosidad por crear momentos especiales a través de los sabores.
-
-                    Para mí, cocinar no es solo seguir una receta; es transmitir dedicación, cuidado y detalle en cada preparación. Con esa misma ilusión nació Hope's Bakery, un espacio donde combino la técnica artesanal con los mejores ingredientes para llevar a tu mesa desde cookies suaves y tortas únicas, hasta las más ricas opciones saladas. ¡Gracias por ser parte de este dulce proyecto!</p>
+                <p>¡Hola! Mi nombre es <strong>Tobías</strong>, tengo 18 años y la cocina es mi pasión desde que tengo memoria. Mi amor por la pastelería comenzó entre harinas, aromas dulces y recetas familiares que despertaron mi curiosidad por crear momentos especiales a través de los sabores.</p>
+                <p>Para mí, cocinar no es solo seguir una receta; es transmitir dedicación, cuidado y detalle en cada preparación. Con esa misma ilusión nació <strong>Hope's Bakery</strong>, un espacio donde combino la técnica artesanal con los mejores ingredientes para llevar a tu mesa desde cookies suaves y tortas únicas, hasta las más ricas opciones saladas.</p>
+                <p class="gracias">¡Gracias por ser parte de este dulce proyecto!</p>
             </div>
         </div>
     </section>
 
-
+    <!-- SECCIÓN DULCE -->
     <section id="menu-dulce" class="menu">
         <h2>SECCIÓN DULCE</h2>
         <p class="subtitulo">Acá vas a encontrar cositas dulces muy ricas</p>
@@ -83,6 +87,7 @@
                 <span class="badge">Nutella</span>
                 <span class="badge">Carrot Cookie</span>
             </div>
+            <button type="button" class="btn-agregar" data-nombre="Cookie Artesanal" data-precio="3500">Agregar al carrito</button>
         </div>
 
         <div class="producto-destacado">
@@ -102,6 +107,7 @@
                 <span class="badge">Marmolado</span>
                 <span class="badge">Oreo</span>
             </div>
+            <button type="button" class="btn-agregar" data-nombre="Budín Casero" data-precio="3000">Agregar al carrito</button>
         </div>
 
         <div class="producto-destacado">
@@ -124,6 +130,7 @@
                 <span class="badge">Pastafrola</span>
                 <span class="badge">Crumble de Manzana</span>
             </div>
+            <button type="button" class="btn-agregar" data-nombre="Mini Torta (15x15)" data-precio="16000">Agregar al carrito</button>
         </div>
 
         <div class="producto-destacado">
@@ -144,6 +151,7 @@
                 <span class="badge">Flan</span>
                 <span class="badge">Red Velvet</span>
             </div>
+            <button type="button" class="btn-agregar" data-nombre="Postre Cuchareable" data-precio="7000">Agregar al carrito</button>
         </div>
 
         <h3 class="subtitulo-seccion">Más tentaciones dulces</h3>
@@ -155,6 +163,7 @@
                 <h3>Muffins</h3>
                 <p>Súper esponjosos y húmedos de sabores surtidos.</p>
                 <span class="precio">$2.500 c/u | ½ Doc. $12.000</span>
+                <button type="button" class="btn-agregar" data-nombre="Muffin" data-precio="2500">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -164,6 +173,7 @@
                 <h3>Alfajores de Maicena</h3>
                 <p>Caja de 6 unidades con abundante dulce de leche y coco.</p>
                 <span class="precio">$6.000 (x6 u.)</span>
+                <button type="button" class="btn-agregar" data-nombre="Alfajores de Maicena (x6)" data-precio="6000">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -173,6 +183,7 @@
                 <h3>Alfajores Especiales</h3>
                 <p>Distintos rellenos y coberturas artesanales.</p>
                 <span class="precio">$3.500 c/u</span>
+                <button type="button" class="btn-agregar" data-nombre="Alfajor Especial" data-precio="3500">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -182,80 +193,88 @@
                 <h3>Rolls de Canela</h3>
                 <p>Masa glaseada esponjosa clásica o combinaciones especiales.</p>
                 <span class="precio">$5.000 c/u</span>
+                <button type="button" class="btn-agregar" data-nombre="Roll de Canela" data-precio="5000">Agregar al carrito</button>
             </div>
         </div>
     </section>
 
-   <!-- SECCIÓN SALADA -->
-   <section id="menu-salado" class="menu menu-salado-bg">
-    <h2>SECCIÓN SALADA</h2>
-    <p class="subtitulo">Acá vas a encontrar cositas ricas y saladas si no te va lo dulce</p>
+    <!-- SECCIÓN SALADA -->
+    <section id="menu-salado" class="menu menu-salado-bg">
+        <h2>SECCIÓN SALADA</h2>
+        <p class="subtitulo">Acá vas a encontrar cositas ricas y saladas si no te va lo dulce</p>
 
-    <div class="productos-grid">
-        <div class="card">
-            <div class="card-img">
-                <img src="https://imag.bonviveur.com/pan-chipa-en-un-cestillo.jpg" alt="Chipá de Queso">
+        <div class="productos-grid">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://imag.bonviveur.com/pan-chipa-en-un-cestillo.jpg" alt="Chipá de Queso">
+                </div>
+                <h3>Chipá de Queso</h3>
+                <p>Bocaditos de queso caseros recién horneados.</p>
+                <span class="precio">$5.000 (¼ kg)</span>
+                <button type="button" class="btn-agregar" data-nombre="Chipá de Queso (1/4 kg)" data-precio="5000">Agregar al carrito</button>
             </div>
-            <h3>Chipá de Queso</h3>
-            <p>Bocaditos de queso caseros recién horneados.</p>
-            <span class="precio">$5.000 (¼ kg)</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://cuk-it.com/wp-content/uploads/2020/08/scones-queso.webp" alt="Scones de Queso">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://cuk-it.com/wp-content/uploads/2020/08/scones-queso.webp" alt="Scones de Queso">
+                </div>
+                <h3>Scones de Queso</h3>
+                <p>Hojaldrados, crocantes e ideales para el mate.</p>
+                <span class="precio">$6.000 (x3 u.)</span>
+                <button type="button" class="btn-agregar" data-nombre="Scones de Queso (x3)" data-precio="6000">Agregar al carrito</button>
             </div>
-            <h3>Scones de Queso</h3>
-            <p>Hojaldrados, crocantes e ideales para el mate.</p>
-            <span class="precio">$6.000 (x3 u.)</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/03/fosforitos-de-jamon-y-queso-1743002575.jpg" alt="Fosforitos">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/03/fosforitos-de-jamon-y-queso-1743002575.jpg" alt="Fosforitos">
+                </div>
+                <h3>Fosforitos</h3>
+                <p>Hojaldre agridulce glaseado relleno de jamón y queso.</p>
+                <span class="precio">$7.500 (x6 u.)</span>
+                <button type="button" class="btn-agregar" data-nombre="Fosforitos (x6)" data-precio="7500">Agregar al carrito</button>
             </div>
-            <h3>Fosforitos</h3>
-            <p>Hojaldre agridulce glaseado relleno de jamón y queso.</p>
-            <span class="precio">$7.500 (x6 u.)</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://cremigal.com/wp-content/uploads/2022/04/CREMIGAL-10-scaled.jpg" alt="Pre Pizza Casera">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://cremigal.com/wp-content/uploads/2022/04/CREMIGAL-10-scaled.jpg" alt="Pre Pizza Casera">
+                </div>
+                <h3>Pre Pizza Casera</h3>
+                <p>Masa esponjosa con abundante salsa de tomate.</p>
+                <span class="precio">$10.000</span>
+                <button type="button" class="btn-agregar" data-nombre="Pre Pizza Casera" data-precio="10000">Agregar al carrito</button>
             </div>
-            <h3>Pre Pizza Casera</h3>
-            <p>Masa esponjosa con abundante salsa de tomate.</p>
-            <span class="precio">$10.000</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://img-global.cpcdn.com/recipes/56a209a560e9f6c7/1200x630cq80/photo.jpg" alt="Pizzetas">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://img-global.cpcdn.com/recipes/56a209a560e9f6c7/1200x630cq80/photo.jpg" alt="Pizzetas">
+                </div>
+                <h3>Pizzetas</h3>
+                <p>Ideales para eventos, cumpleaños y picadas.</p>
+                <span class="precio">$8.000 (x12 u.)</span>
+                <button type="button" class="btn-agregar" data-nombre="Pizzetas (x12)" data-precio="8000">Agregar al carrito</button>
             </div>
-            <h3>Pizzetas</h3>
-            <p>Ideales para eventos, cumpleaños y picadas.</p>
-            <span class="precio">$8.000 (x12 u.)</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://media.elgourmet.com/recetas/cover/bfb708b5ec1c476ee668a5159efbc49d_3_3_photo.png" alt="Bizcochitos de Grasa">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://media.elgourmet.com/recetas/cover/bfb708b5ec1c476ee668a5159efbc49d_3_3_photo.png" alt="Bizcochitos de Grasa">
+                </div>
+                <h3>Bizcochitos de Grasa</h3>
+                <p>Súper crocantes y sabrosos estilo panadería.</p>
+                <span class="precio">$4.000 (¼ kg)</span>
+                <button type="button" class="btn-agregar" data-nombre="Bizcochitos de Grasa (1/4 kg)" data-precio="4000">Agregar al carrito</button>
             </div>
-            <h3>Bizcochitos de Grasa</h3>
-            <p>Súper crocantes y sabrosos estilo panadería.</p>
-            <span class="precio">$4.000 (¼ kg)</span>
-        </div>
 
-        <div class="card">
-            <div class="card-img">
-                <img src="https://i.blogs.es/45c55e/pan-rustico-de-trigo-facil-y-rapido/450_1000.jpg" alt="Pancito Casero">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://i.blogs.es/45c55e/pan-rustico-de-trigo-facil-y-rapido/450_1000.jpg" alt="Pancito Casero">
+                </div>
+                <h3>Pancito Casero</h3>
+                <p>Pan artesanal horneado en el día con corteza crocante.</p>
+                <span class="precio">$4.000</span>
+                <button type="button" class="btn-agregar" data-nombre="Pancito Casero" data-precio="4000">Agregar al carrito</button>
             </div>
-            <h3>Pancito Casero</h3>
-            <p>Pan artesanal horneado en el día con corteza crocante.</p>
-            <span class="precio">$4.000</span>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- SECCIÓN SIN TACC -->
     <section id="menu-celiacos" class="menu">
@@ -270,6 +289,7 @@
                 <h3>Cookie Sin TACC</h3>
                 <p>Masa especial libre de gluten con chips de chocolate.</p>
                 <span class="precio">$3.800</span>
+                <button type="button" class="btn-agregar" data-nombre="Cookie Sin TACC" data-precio="3800">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -279,6 +299,7 @@
                 <h3>Alfajor Sin TACC</h3>
                 <p>Masa suave con harina de almendras y dulce de leche.</p>
                 <span class="precio">$3.800</span>
+                <button type="button" class="btn-agregar" data-nombre="Alfajor Sin TACC" data-precio="3800">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -288,26 +309,40 @@
                 <h3>Budín Sin TACC</h3>
                 <p>Budín libre de gluten con sabor a elección (Limón/Vainilla).</p>
                 <span class="precio">$3.500</span>
+                <button type="button" class="btn-agregar" data-nombre="Budín Sin TACC" data-precio="3500">Agregar al carrito</button>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO -->
+    <!-- SECCIÓN CONTACTO Y CARRITO DE COMPRAS -->
     <section id="contacto" class="contacto">
-        <h2>CONTACTO</h2>
-        <p>Acá podes mandarme preguntiitas, hacer presupuestos o pedidos directamente</p>
+        <h2>HACÉ TU PEDIDO</h2>
+        <p>Agregá tus productos al carrito e ingresá tus datos para enviarnos tu pedido directo por mail.</p>
 
-        <form class="formulario" action="https://formspree.io/f/xrpbdlyp" method="POST">
+        <div id="carrito-contenedor" class="carrito-box">
+            <h3>Tu Carrito</h3>
+            <ul id="lista-carrito">
+                <li class="empty-cart">El carrito está vacío. ¡Elegí algo rico!</li>
+            </ul>
+            <p class="total-cart">Total: <strong id="total-precio">$0</strong></p>
+        </div>
+
+        <form class="formulario" action="https://formspree.io/f/xrpbdlyp" method="POST" id="form-pedido">
             <label for="nombre">A nombre de:</label>
             <input type="text" id="nombre" name="nombre" required>
+
+            <label for="telefono">Teléfono de contacto (WhatsApp):</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 11 1234 5678" required>
 
             <label for="email">Tu mail:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="pedido">Tu pedido:</label>
-            <textarea id="pedido" name="pedido" rows="4"></textarea>
+            <input type="hidden" id="pedido-detalle" name="pedido_completo">
 
-            <button type="submit" class="btn">¡Enviar!</button>
+            <label for="aclaraciones">Aclaraciones o sabores elegidos (opcional):</label>
+            <textarea id="aclaraciones" name="aclaraciones" rows="3" placeholder="Ej: Las cookies quiero 2 de Kinder y 1 de Oreo..."></textarea>
+
+            <button type="submit" class="btn">¡Enviar Pedido!</button>
         </form>
     </section>
 
@@ -385,6 +420,91 @@
         }
 
         animate();
+
+        // --- Lógica del Carrito de Compras (Delegación de Eventos) ---
+        let carrito = [];
+
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.classList.contains('btn-agregar')) {
+                const boton = e.target;
+                const nombre = boton.getAttribute('data-nombre');
+                const precio = parseInt(boton.getAttribute('data-precio'));
+
+                if (nombre && !isNaN(precio)) {
+                    carrito.push({ nombre, precio });
+                    actualizarCarrito();
+
+                    const textoOriginal = boton.innerText;
+                    boton.innerText = "¡Agregado! ✓";
+                    boton.style.backgroundColor = "#2c6e7f";
+                    setTimeout(() => {
+                        boton.innerText = textoOriginal;
+                        boton.style.backgroundColor = "";
+                    }, 1000);
+                }
+            }
+        });
+
+        function actualizarCarrito() {
+            const listaHtml = document.getElementById('lista-carrito');
+            const totalHtml = document.getElementById('total-precio');
+            const inputHidden = document.getElementById('pedido-detalle');
+
+            if (!listaHtml || !totalHtml || !inputHidden) return;
+
+            if (carrito.length === 0) {
+                listaHtml.innerHTML = '<li class="empty-cart">El carrito está vacío. ¡Elegí algo rico!</li>';
+                totalHtml.innerText = '$0';
+                inputHidden.value = '';
+                return;
+            }
+
+            listaHtml.innerHTML = '';
+            let total = 0;
+            let resumenTexto = "DETALLE DEL PEDIDO:\n";
+
+            carrito.forEach((item, index) => {
+                total += item.precio;
+                resumenTexto += `- ${item.nombre}: $${item.precio.toLocaleString('es-AR')}\n`;
+
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${item.nombre} - $${item.precio.toLocaleString('es-AR')}</span>
+                    <button type="button" class="btn-borrar" data-index="${index}">X</button>
+                `;
+                listaHtml.appendChild(li);
+            });
+
+            resumenTexto += `\nTOTAL ESTIMADO: $${total.toLocaleString('es-AR')}`;
+
+            totalHtml.innerText = `$${total.toLocaleString('es-AR')}`;
+            inputHidden.value = resumenTexto;
+        }
+
+        const listaCarritoEl = document.getElementById('lista-carrito');
+        if (listaCarritoEl) {
+            listaCarritoEl.addEventListener('click', (e) => {
+                if (e.target && e.target.classList.contains('btn-borrar')) {
+                    const index = e.target.getAttribute('data-index');
+                    eliminarDelCarrito(parseInt(index));
+                }
+            });
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+
+        const formPedido = document.getElementById('form-pedido');
+        if (formPedido) {
+            formPedido.addEventListener('submit', (e) => {
+                if (carrito.length === 0) {
+                    e.preventDefault();
+                    alert('Por favor agregá al menos un producto al carrito antes de enviar tu pedido.');
+                }
+            });
+        }
     </script>
 
 </body>
