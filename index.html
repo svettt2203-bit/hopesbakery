@@ -12,10 +12,7 @@
 </head>
 <body>
 
-    <!-- Audio de fondo en loop -->
-    <audio id="musica-fondo" autoplay loop>
-        <source src="IMAGENES/recursos/musica fondo.mp3" type="audio/mpeg">
-    </audio>
+
 
     <header class="header">
         <div class="logo">
@@ -43,7 +40,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ -->
+
     <section id="nosotros" class="nosotros">
         <h2>Sobre Mí</h2>
         <div class="separador-decorativo"><span>✨ 🧁 ✨</span></div>
@@ -59,13 +56,13 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DULCE -->
+    
     <section id="menu-dulce" class="menu">
         <h2>SECCIÓN DULCE 🍪</h2>
         <p class="subtitulo">Tocá cualquier sabor para agregarlo directamente al carrito</p>
         <div class="separador-decorativo"><span>✨ 🍰 ✨</span></div>
 
-        <!-- COOKIES CON SABORES SELECCIONABLES -->
+
         <div class="producto-destacado">
             <div class="destacado-header">
                 <h3>🍪 Cookies Artesanales</h3>
@@ -93,7 +90,7 @@
             </div>
         </div>
 
-        <!-- BUDINES CON SABORES SELECCIONABLES -->
+ 
         <div class="producto-destacado">
             <div class="destacado-header">
                 <h3>🍞 Budines Caseros</h3>
@@ -113,7 +110,7 @@
             </div>
         </div>
 
-        <!-- MINI TORTAS CON SABORES SELECCIONABLES -->
+       
         <div class="producto-destacado">
             <div class="destacado-header">
                 <h3>🎂 Mini Tortas (15x15)</h3>
@@ -136,7 +133,7 @@
             </div>
         </div>
 
-        <!-- POSTRES CUCHAREABLES CON SABORES SELECCIONABLES -->
+    
         <div class="producto-destacado">
             <div class="destacado-header">
                 <h3>🍨 Postres Cuchareables</h3>
@@ -174,9 +171,12 @@
                     <img src="https://cuk-it.com/wp-content/uploads/2020/06/alfajores-maicena-1155x675.webp" alt="Alfajores de Maicena">
                 </div>
                 <h3>Alfajores de Maicena</h3>
-                <p>Caja de 6 unidades con abundante dulce de leche y coco.</p>
-                <span class="precio">$6.000 (x6 u.)</span>
-                <button type="button" class="btn-agregar" data-nombre="Alfajores de Maicena (x6)" data-precio="6000">Agregar al carrito</button>
+                <p>Caja con abundante dulce de leche y coco.</p>
+                <select class="selector-cantidad">
+                    <option value="6000" data-etiqueta="(x6)">x6 u. - $6.000</option>
+                    <option value="12000" data-etiqueta="(x12)">x12 u. - $12.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Alfajores de Maicena">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -201,7 +201,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SALADA -->
+
     <section id="menu-salado" class="menu menu-salado-bg">
         <h2>SECCIÓN SALADA 🥐</h2>
         <p class="subtitulo">Acá vas a encontrar cositas ricas y saladas si no te va lo dulce</p>
@@ -214,8 +214,11 @@
                 </div>
                 <h3>Chipá de Queso</h3>
                 <p>Bocaditos de queso caseros recién horneados.</p>
-                <span class="precio">$5.000 (¼ kg)</span>
-                <button type="button" class="btn-agregar" data-nombre="Chipá de Queso (1/4 kg)" data-precio="5000">Agregar al carrito</button>
+                <select class="selector-cantidad">
+                    <option value="5000" data-etiqueta="(1/4 kg)">¼ kg - $5.000</option>
+                    <option value="10000" data-etiqueta="(1/2 kg)">½ kg - $10.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Chipá de Queso">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -224,8 +227,11 @@
                 </div>
                 <h3>Scones de Queso</h3>
                 <p>Hojaldrados, crocantes e ideales para el mate.</p>
-                <span class="precio">$6.000 (x3 u.)</span>
-                <button type="button" class="btn-agregar" data-nombre="Scones de Queso (x3)" data-precio="6000">Agregar al carrito</button>
+                <select class="selector-cantidad">
+                    <option value="6000" data-etiqueta="(x3)">x3 u. - $6.000</option>
+                    <option value="12000" data-etiqueta="(x6)">x6 u. - $12.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Scones de Queso">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -234,8 +240,11 @@
                 </div>
                 <h3>Fosforitos</h3>
                 <p>Hojaldre agridulce glaseado relleno de jamón y queso.</p>
-                <span class="precio">$7.500 (x6 u.)</span>
-                <button type="button" class="btn-agregar" data-nombre="Fosforitos (x6)" data-precio="7500">Agregar al carrito</button>
+                <select class="selector-cantidad">
+                    <option value="7500" data-etiqueta="(x6)">x6 u. - $7.500</option>
+                    <option value="15000" data-etiqueta="(x12)">x12 u. - $15.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Fosforitos">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -254,8 +263,11 @@
                 </div>
                 <h3>Pizzetas</h3>
                 <p>Ideales para eventos, cumpleaños y picadas.</p>
-                <span class="precio">$8.000 (x12 u.)</span>
-                <button type="button" class="btn-agregar" data-nombre="Pizzetas (x12)" data-precio="8000">Agregar al carrito</button>
+                <select class="selector-cantidad">
+                    <option value="8000" data-etiqueta="(x12)">x12 u. - $8.000</option>
+                    <option value="16000" data-etiqueta="(x24)">x24 u. - $16.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Pizzetas">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -264,8 +276,11 @@
                 </div>
                 <h3>Bizcochitos de Grasa</h3>
                 <p>Súper crocantes y sabrosos estilo panadería.</p>
-                <span class="precio">$4.000 (¼ kg)</span>
-                <button type="button" class="btn-agregar" data-nombre="Bizcochitos de Grasa (1/4 kg)" data-precio="4000">Agregar al carrito</button>
+                <select class="selector-cantidad">
+                    <option value="4000" data-etiqueta="(1/4 kg)">¼ kg - $4.000</option>
+                    <option value="8000" data-etiqueta="(1/2 kg)">½ kg - $8.000</option>
+                </select>
+                <button type="button" class="btn-agregar" data-nombre="Bizcochitos de Grasa">Agregar al carrito</button>
             </div>
 
             <div class="card">
@@ -280,7 +295,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN SIN TACC -->
+
     <section id="menu-celiacos" class="menu">
         <h2>MENÚ SIN TACC 🌾</h2>
         <p class="subtitulo">Opciones aptas para celíacos elaboradas con el mayor cuidado</p>
@@ -319,7 +334,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONTACTO Y CARRITO DE COMPRAS -->
+    
     <section id="contacto" class="contacto">
         <h2>HACÉ TU PEDIDO 🛒</h2>
         <p>Agregá tus productos al carrito e ingresá tus datos para enviarnos tu pedido directo por mail.</p>
@@ -430,8 +445,15 @@
         document.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains('btn-agregar')) {
                 const boton = e.target;
-                const nombre = boton.getAttribute('data-nombre');
-                const precio = parseInt(boton.getAttribute('data-precio'));
+                let nombre = boton.getAttribute('data-nombre');
+                let precio = parseInt(boton.getAttribute('data-precio'));
+
+
+                const selector = boton.closest('.card')?.querySelector('.selector-cantidad');
+                if (selector) {
+                    precio = parseInt(selector.value);
+                    nombre += ' ' + selector.options[selector.selectedIndex].dataset.etiqueta;
+                }
 
                 if (nombre && !isNaN(precio)) {
                     carrito.push({ nombre, precio });
