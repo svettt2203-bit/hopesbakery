@@ -531,3 +531,56 @@ body {
     background-position: 0 0, 15px 15px;
     line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0.6rem 4%;
+    }
+
+    .logo h1 { font-size: 1.4rem; }
+
+    .navbar {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .navbar::-webkit-scrollbar { display: none; }
+
+    .navbar ul {
+        gap: 8px;
+        width: max-content;
+    }
+
+    .navbar a {
+        white-space: nowrap;
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        background-color: #f0f4f5;
+        border-radius: 20px;
+    }
+
+    section { padding: 40px 5%; scroll-margin-top: 110px; }
+    section h2 { font-size: 1.7rem; }
+
+    .hero { height: auto; min-height: 60vh; padding: 50px 20px; }
+    .hero-content h2 { font-size: 2.1rem; }
+
+    .nosotros { margin: 20px 4%; }
+    .nosotros-contenido { flex-direction: column; }
+
+    .producto-destacado { padding: 20px 16px; }
+    .badge { min-height: 44px; }
+
+    .productos-grid { grid-template-columns: 1fr; }
+
+    .contacto { margin: 20px 4%; padding: 25px 18px; }
+    .btn-borrar { width: 36px; height: 36px; flex-shrink: 0; }
+
+    .formulario input,
+    .formulario textarea { font-size: 16px; }
+
+    .btn { width: 100%; }
+}
