@@ -370,6 +370,21 @@ section h2 {
     margin-bottom: 12px;
 }
 
+/* --- SELECTOR DE CANTIDAD --- */
+.selector-cantidad {
+    align-self: center;
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    border: 1px solid #c2d4d8;
+    border-radius: 20px;
+    background-color: #e6ecee;
+    color: #2c6e7f;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* --- BOTÓN AGREGAR EN TARJETAS SIMPLES --- */
 .card .btn-agregar {
     background-color: #122c33;
@@ -532,6 +547,7 @@ body {
     line-height: 1.6;
 }
 
+/* ===== RESPONSIVE / PHONE FRIENDLY ===== */
 @media (max-width: 768px) {
 
     .header {
