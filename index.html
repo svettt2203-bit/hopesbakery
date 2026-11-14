@@ -170,9 +170,9 @@
                 </div>
                 <h3>Alfajores de Maicena</h3>
                 <p>Caja con abundante dulce de leche y coco.</p>
-                <select class="selector-cantidad">
-                    <option value="6000" data-etiqueta="(x6)">x6 u. - $6.000</option>
-                    <option value="12000" data-etiqueta="(x12)">x12 u. - $12.000</option>
+                <select class="selector-cantidad" data-unidad="u">
+                    <option value="6000" data-cantidad="6">x6 u. - $6.000</option>
+                    <option value="12000" data-cantidad="12">x12 u. - $12.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Alfajores de Maicena">Agregar al carrito</button>
             </div>
@@ -212,9 +212,9 @@
                 </div>
                 <h3>Chipá de Queso</h3>
                 <p>Bocaditos de queso caseros recién horneados.</p>
-                <select class="selector-cantidad">
-                    <option value="5000" data-etiqueta="(1/4 kg)">¼ kg - $5.000</option>
-                    <option value="10000" data-etiqueta="(1/2 kg)">½ kg - $10.000</option>
+                <select class="selector-cantidad" data-unidad="kg">
+                    <option value="5000" data-cantidad="0.25">¼ kg - $5.000</option>
+                    <option value="10000" data-cantidad="0.5">½ kg - $10.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Chipá de Queso">Agregar al carrito</button>
             </div>
@@ -225,9 +225,9 @@
                 </div>
                 <h3>Scones de Queso</h3>
                 <p>Hojaldrados, crocantes e ideales para el mate.</p>
-                <select class="selector-cantidad">
-                    <option value="6000" data-etiqueta="(x3)">x3 u. - $6.000</option>
-                    <option value="12000" data-etiqueta="(x6)">x6 u. - $12.000</option>
+                <select class="selector-cantidad" data-unidad="u">
+                    <option value="6000" data-cantidad="3">x3 u. - $6.000</option>
+                    <option value="12000" data-cantidad="6">x6 u. - $12.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Scones de Queso">Agregar al carrito</button>
             </div>
@@ -238,9 +238,9 @@
                 </div>
                 <h3>Fosforitos</h3>
                 <p>Hojaldre agridulce glaseado relleno de jamón y queso.</p>
-                <select class="selector-cantidad">
-                    <option value="7500" data-etiqueta="(x6)">x6 u. - $7.500</option>
-                    <option value="15000" data-etiqueta="(x12)">x12 u. - $15.000</option>
+                <select class="selector-cantidad" data-unidad="u">
+                    <option value="7500" data-cantidad="6">x6 u. - $7.500</option>
+                    <option value="15000" data-cantidad="12">x12 u. - $15.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Fosforitos">Agregar al carrito</button>
             </div>
@@ -261,9 +261,9 @@
                 </div>
                 <h3>Pizzetas</h3>
                 <p>Ideales para eventos, cumpleaños y picadas.</p>
-                <select class="selector-cantidad">
-                    <option value="8000" data-etiqueta="(x12)">x12 u. - $8.000</option>
-                    <option value="16000" data-etiqueta="(x24)">x24 u. - $16.000</option>
+                <select class="selector-cantidad" data-unidad="u">
+                    <option value="8000" data-cantidad="12">x12 u. - $8.000</option>
+                    <option value="16000" data-cantidad="24">x24 u. - $16.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Pizzetas">Agregar al carrito</button>
             </div>
@@ -274,9 +274,9 @@
                 </div>
                 <h3>Bizcochitos de Grasa</h3>
                 <p>Súper crocantes y sabrosos estilo panadería.</p>
-                <select class="selector-cantidad">
-                    <option value="4000" data-etiqueta="(1/4 kg)">¼ kg - $4.000</option>
-                    <option value="8000" data-etiqueta="(1/2 kg)">½ kg - $8.000</option>
+                <select class="selector-cantidad" data-unidad="kg">
+                    <option value="4000" data-cantidad="0.25">¼ kg - $4.000</option>
+                    <option value="8000" data-cantidad="0.5">½ kg - $8.000</option>
                 </select>
                 <button type="button" class="btn-agregar" data-nombre="Bizcochitos de Grasa">Agregar al carrito</button>
             </div>
@@ -433,21 +433,53 @@
 
         let carrito = [];
 
+        function formatearCantidad(cant, unidad) {
+            if (unidad === 'kg') {
+                const enteros = Math.floor(cant);
+                const cuartos = Math.round((cant - enteros) * 4);
+                const fraccion = ['', '¼', '½', '¾'][cuartos];
+                return (enteros > 0 ? enteros : '') + fraccion + ' kg';
+            }
+            return 'x' + cant;
+        }
+
         document.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains('btn-agregar')) {
                 const boton = e.target;
-                let nombre = boton.getAttribute('data-nombre');
+                const nombre = boton.getAttribute('data-nombre');
                 let precio = parseInt(boton.getAttribute('data-precio'));
+                let cantidad = null;
+                let unidad = null;
 
-                // Si la tarjeta tiene selector de cantidad, usa su precio y etiqueta
+                // Si la tarjeta tiene selector de cantidad, usa su precio y cantidad
                 const selector = boton.closest('.card')?.querySelector('.selector-cantidad');
                 if (selector) {
+                    const opcion = selector.options[selector.selectedIndex];
                     precio = parseInt(selector.value);
-                    nombre += ' ' + selector.options[selector.selectedIndex].dataset.etiqueta;
+                    cantidad = parseFloat(opcion.dataset.cantidad);
+                    unidad = selector.dataset.unidad;
                 }
 
                 if (nombre && !isNaN(precio)) {
-                    carrito.push({ nombre, precio });
+                    if (selector) {
+                        // Si ya hay ese producto en el carrito, se suman cantidad y precio
+                        const existente = carrito.find(i => i.base === nombre && i.unidad === unidad);
+                        if (existente) {
+                            existente.precio += precio;
+                            existente.cantidad += cantidad;
+                            existente.nombre = `${nombre} (${formatearCantidad(existente.cantidad, unidad)})`;
+                        } else {
+                            carrito.push({
+                                base: nombre,
+                                nombre: `${nombre} (${formatearCantidad(cantidad, unidad)})`,
+                                precio,
+                                cantidad,
+                                unidad
+                            });
+                        }
+                    } else {
+                        carrito.push({ nombre, precio });
+                    }
                     actualizarCarrito();
 
                     const textoOriginal = boton.innerText;
