@@ -26,6 +26,68 @@
             font-size: 0.9rem;
             background: #fff;
         }
+
+        /* ===== VENTANA EMERGENTE (MODAL) DE LA BOX ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 30, 38, 0.6);
+            backdrop-filter: blur(3px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-overlay.activo {
+            display: flex;
+            animation: modalFade 0.25s ease;
+        }
+        .modal-contenido {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            padding: 28px 22px 22px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: modalPop 0.3s ease;
+        }
+        .modal-contenido h3 {
+            margin-bottom: 6px;
+        }
+        .modal-contenido p {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #2c6e7f;
+        }
+        .modal-cerrar:hover {
+            color: #14303a;
+        }
+        body.modal-abierto {
+            overflow: hidden;
+        }
+        @keyframes modalFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.9) translateY(10px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -177,10 +239,9 @@
                     <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&auto=format&fit=crop" alt="Box de Cookies">
                 </div>
                 <h3>Box de Cookies 🎁</h3>
-                <p>Armá tu box de 6 cookies eligiendo el sabor de cada una:</p>
+                <p>Box de 6 cookies artesanales. ¡Elegí el sabor de cada una!</p>
                 <span class="precio">$17.000</span>
-                <div class="box-selectores" id="box-selectores"></div>
-                <button type="button" class="btn-agregar btn-agregar-box" id="btn-agregar-box">Agregar box al carrito</button>
+                <button type="button" class="btn-agregar btn-agregar-box" id="btn-abrir-box">Armar mi box 🍪</button>
             </div>
 
             <div class="card">
@@ -397,6 +458,17 @@
     <footer>
         <p>HOPE'S BAKERY 2026 © — Pastelería Artesanal</p>
     </footer>
+
+    <!-- VENTANA EMERGENTE: ARMAR BOX DE COOKIES -->
+    <div id="modal-box" class="modal-overlay" aria-hidden="true">
+        <div class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modal-box-titulo">
+            <button type="button" class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar">&times;</button>
+            <h3 id="modal-box-titulo">🎁 Armá tu Box de Cookies</h3>
+            <p>Elegí el sabor de cada una de las 6 cookies — <strong>$17.000</strong></p>
+            <div class="box-selectores" id="box-selectores"></div>
+            <button type="button" class="btn-agregar btn-agregar-box" id="btn-agregar-box">Agregar box al carrito</button>
+        </div>
+    </div>
 
     <script>
         const canvas = document.createElement('canvas');
@@ -616,18 +688,52 @@
                 actualizarCarrito();
 
                 selects.forEach(s => s.selectedIndex = 0);
+                cerrarModalBox();
 
-                const textoOriginal = btnBox.innerText;
-                btnBox.innerText = '¡Agregado! ✓';
-                btnBox.style.backgroundColor = '#2c6e7f';
-                btnBox.style.color = '#ffffff';
+                // Feedback en el botón de la tarjeta
+                const textoOriginal = btnAbrirBox.innerText;
+                btnAbrirBox.innerText = '¡Agregado! ✓';
+                btnAbrirBox.style.backgroundColor = '#2c6e7f';
+                btnAbrirBox.style.color = '#ffffff';
                 setTimeout(() => {
-                    btnBox.innerText = textoOriginal;
-                    btnBox.style.backgroundColor = '';
-                    btnBox.style.color = '';
-                }, 800);
+                    btnAbrirBox.innerText = textoOriginal;
+                    btnAbrirBox.style.backgroundColor = '';
+                    btnAbrirBox.style.color = '';
+                }, 1200);
             });
         }
+
+        // ===== ABRIR / CERRAR VENTANA EMERGENTE =====
+        const modalBox = document.getElementById('modal-box');
+        const btnAbrirBox = document.getElementById('btn-abrir-box');
+        const btnCerrarModal = document.getElementById('modal-cerrar');
+
+        function abrirModalBox() {
+            modalBox.classList.add('activo');
+            modalBox.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-abierto');
+        }
+
+        function cerrarModalBox() {
+            modalBox.classList.remove('activo');
+            modalBox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-abierto');
+        }
+
+        if (btnAbrirBox) btnAbrirBox.addEventListener('click', abrirModalBox);
+        if (btnCerrarModal) btnCerrarModal.addEventListener('click', cerrarModalBox);
+
+        // Cerrar tocando fuera de la ventana
+        if (modalBox) {
+            modalBox.addEventListener('click', (e) => {
+                if (e.target === modalBox) cerrarModalBox();
+            });
+        }
+
+        // Cerrar con la tecla Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalBox.classList.contains('activo')) cerrarModalBox();
+        });
 
         // ===== ENVÍO DEL PEDIDO POR WHATSAPP =====
         const NUMERO_WHATSAPP = '5491162761976';
