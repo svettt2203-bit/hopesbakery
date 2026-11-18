@@ -9,6 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .box-selectores {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .box-selectores select {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 2px solid #2c6e7f;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -159,9 +177,10 @@
                     <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&auto=format&fit=crop" alt="Box de Cookies">
                 </div>
                 <h3>Box de Cookies 🎁</h3>
-                <p>Box de 6 cookies artesanales. Escribí los sabores que querés en las aclaraciones del pedido.</p>
+                <p>Armá tu box de 6 cookies eligiendo el sabor de cada una:</p>
                 <span class="precio">$17.000</span>
-                <button type="button" class="btn-agregar" data-nombre="Box de Cookies (x6)" data-precio="17000">Agregar al carrito</button>
+                <div class="box-selectores" id="box-selectores"></div>
+                <button type="button" class="btn-agregar btn-agregar-box" id="btn-agregar-box">Agregar box al carrito</button>
             </div>
 
             <div class="card">
@@ -454,7 +473,7 @@
         }
 
         document.addEventListener('click', (e) => {
-            if (e.target && e.target.classList.contains('btn-agregar')) {
+            if (e.target && e.target.classList.contains('btn-agregar') && !e.target.classList.contains('btn-agregar-box')) {
                 const boton = e.target;
                 const nombre = boton.getAttribute('data-nombre');
                 let precio = parseInt(boton.getAttribute('data-precio'));
@@ -554,6 +573,60 @@
         function eliminarDelCarrito(index) {
             carrito.splice(index, 1);
             actualizarCarrito();
+        }
+
+        // ===== BOX DE COOKIES (6 sabores a elección) =====
+        const PRECIO_BOX = 17000;
+        const SABORES_COOKIES = [
+            'Clásica', 'Frutilla', 'Frutos Rojos', 'Marroc', 'Oreo', 'Kinder',
+            'Monster Cookie', 'Lemon Pie', 'Red Velvet', 'Chocolate', 'Pistachio',
+            'Rocklets', 'Dot Cookie', 'Mar del Plata', 'Ferrero', 'Nutella', 'Carrot Cookie'
+        ];
+
+        const boxSelectores = document.getElementById('box-selectores');
+        if (boxSelectores) {
+            for (let i = 1; i <= 6; i++) {
+                const sel = document.createElement('select');
+                sel.className = 'sabor-box';
+                sel.innerHTML = `<option value="" disabled selected>Cookie ${i}: elegí sabor</option>` +
+                    SABORES_COOKIES.map(s => `<option value="${s}">${s}</option>`).join('');
+                boxSelectores.appendChild(sel);
+            }
+        }
+
+        const btnBox = document.getElementById('btn-agregar-box');
+        if (btnBox) {
+            btnBox.addEventListener('click', () => {
+                const selects = document.querySelectorAll('.sabor-box');
+                const elegidos = Array.from(selects).map(s => s.value);
+
+                if (elegidos.some(v => v === '')) {
+                    alert('Elegí el sabor de las 6 cookies para armar tu box.');
+                    return;
+                }
+
+                // Agrupa sabores repetidos: "Oreo x2, Nutella, ..."
+                const conteo = {};
+                elegidos.forEach(s => conteo[s] = (conteo[s] || 0) + 1);
+                const detalle = Object.entries(conteo)
+                    .map(([sabor, n]) => n > 1 ? `${sabor} x${n}` : sabor)
+                    .join(', ');
+
+                carrito.push({ nombre: `Box de Cookies x6 (${detalle})`, precio: PRECIO_BOX });
+                actualizarCarrito();
+
+                selects.forEach(s => s.selectedIndex = 0);
+
+                const textoOriginal = btnBox.innerText;
+                btnBox.innerText = '¡Agregado! ✓';
+                btnBox.style.backgroundColor = '#2c6e7f';
+                btnBox.style.color = '#ffffff';
+                setTimeout(() => {
+                    btnBox.innerText = textoOriginal;
+                    btnBox.style.backgroundColor = '';
+                    btnBox.style.color = '';
+                }, 800);
+            });
         }
 
         // ===== ENVÍO DEL PEDIDO POR WHATSAPP =====
